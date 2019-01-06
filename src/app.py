@@ -1,14 +1,16 @@
 from config import Config
+from routes.router import Router
 
 from japronto import Application
 
 # Load configure
 config = Config(debug=True)
-config.display()
 
+# create an app
 app = Application()
-
-exit(0)
+# add routes
+app_rt = app.router
+Router(app_rt)
 
 if __name__ == '__main__':
     app.run(
