@@ -1,4 +1,3 @@
-import json
 from utils.utils import sendData
 
 async def _list_users(req):
@@ -11,6 +10,11 @@ async def _list_users(req):
 async def _get_user(req):
     """Get one user
     """
+    # add call back func
+    def cb(r):
+        print('/user GET')
+    req.add_done_callback(cb)
+
     params = req.match_dict
     body = params
     return sendData(req, body)

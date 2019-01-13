@@ -1,6 +1,4 @@
-
-
-def sendData(req, body, status_code=200):
+async def sendData(req, body, status_code=200):
     res = {}
     res['code'] = status_code
     res['status'] = 'success' if status_code == 200 else 'failed'
