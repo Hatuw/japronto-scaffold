@@ -1,22 +1,26 @@
+import json
+from utils.utils import sendData
 
-
-async def _list_users(request):
+async def _list_users(req):
     """List all users
     """
-    return request.Response(text='{} User\n'.format(request.method))
+    body = {'method': req.method}
+    return sendData(req, body)
 
 
-async def _get_user(request):
+async def _get_user(req):
     """Get one user
     """
-    params = request.match_dict
-    return request.Response(text='user id: {}\n'.format(params['uid']))
+    params = req.match_dict
+    body = params
+    return sendData(req, body)
 
 
-async def _add_user(request):
+async def _add_user(req):
     """Add one user
     """
-    return request.Response(text='{} user\n'.format(request.method))
+    body = {'method': req.method}
+    return sendData(req, body)
 
 
 # add route
